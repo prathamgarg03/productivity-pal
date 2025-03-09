@@ -327,7 +327,10 @@ export default function Home() {
                     placeholder="Enter your email"
                     className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <Button className="bg-blue-600 hover:bg-blue-700 py-3 px-6">
+                <Button
+                    className="bg-blue-600 hover:bg-blue-700 py-3 px-6"
+                    onClick={sendEmail}
+                >
                   Get Early Access
                 </Button>
               </div>
