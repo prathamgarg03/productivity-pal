@@ -36,13 +36,13 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "ProductivityPal completely shattered our productivity paradigms, boosting efficiency by 500%—and then we lost track of time.",
-      author: "Someone once said, \"ABC\", Keeper of Unseen Efficiency",
+      quote: "ProductivityPal completely shattered our productivity paradigms, boosting efficiency by 500%&mdash;and then we lost track of time.",
+      author: "Someone once said, &quot;ABC&quot;, Keeper of Unseen Efficiency",
       company: "DEF"
     },
     {
-      quote: "Our ROI? Let's just say it broke the algorithm. The Cognitive Resonance module rewired our team’s very essence.",
-      author: "They call her 'GHI', Seeker of Cognitive Pathways",
+      quote: "Our ROI? Let&apos;s just say it broke the algorithm. The Cognitive Resonance module rewired our team&rsquo;s very essence.",
+      author: "They call her &apos;GHI&apos;, Seeker of Cognitive Pathways",
       company: "JKL"
     }
   ];
