@@ -70,7 +70,7 @@ function Sidebar() {
                     <CardContent className="p-4">
                         <div className="flex items-center mb-3">
                             <Zap className="h-5 w-5 text-primary mr-2" />
-                            <h3 className="font-medium">Upgrade Now For FREE</h3>
+                            <h3 className="font-medium">Upgrade Now For FREE!!!</h3>
                         </div>
                         <p className="text-sm text-muted-foreground mb-3">
                             Choose a plan that aligns with your task and cognitive needs
@@ -84,7 +84,7 @@ function Sidebar() {
                                 className="w-full"
                                 onClick={handleUpgradeClick}
                             >
-                                Go Ultimate
+                                Go Ultimate.
                             </Button>
                         </motion.div>
                     </CardContent>

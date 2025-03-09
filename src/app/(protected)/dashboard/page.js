@@ -21,11 +21,19 @@ import {
     MoreHorizontal,
     ArrowUpRight,
     Trash,
-    RotateCcw
+    RotateCcw,
+    ChevronDown
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import Sidebar from "@/components/sidebar";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 export default function Dashboard() {
     const [tasks, setTasks] = useState([
@@ -39,6 +47,13 @@ export default function Dashboard() {
     const [synergisticPotential, setSynergisticPotential] = useState(42);
     const [loadingDashboard, setLoadingDashboard] = useState(true);
     const [activeView, setActiveView] = useState("tasks");
+    const [selectedPriority, setSelectedPriority] = useState("Medium");
+    const [selectedComplexity, setSelectedComplexity] = useState("Standard");
+    const [selectedDomain, setSelectedDomain] = useState("Operational");
+
+    const priorities = ["Critical", "High", "Medium", "Low", "Exponential"];
+    const complexities = ["Quantum", "Neural", "Temporal", "Cognitive", "Standard"];
+    const domains = ["Strategic", "Operational", "Administrative", "Transformative", "Disruptive"];
 
     useEffect(() => {
         // Simulate dashboard loading
@@ -51,18 +66,13 @@ export default function Dashboard() {
     const addTask = () => {
         if (newTask.trim() === "") return;
 
-        // Generate random buzzword-filled priority and complexity
-        const priorities = ["Critical", "High", "Medium", "Low", "Exponential"];
-        const complexities = ["Quantum", "Neural", "Temporal", "Cognitive", "Standard"];
-        const domains = ["Strategic", "Operational", "Administrative", "Transformative", "Disruptive"];
-
         const newTaskObj = {
             id: tasks.length + 1,
             text: newTask,
             completed: false,
-            priority: priorities[Math.floor(Math.random() * priorities.length)],
-            complexity: complexities[Math.floor(Math.random() * complexities.length)],
-            domain: domains[Math.floor(Math.random() * domains.length)]
+            priority: selectedPriority,
+            complexity: selectedComplexity,
+            domain: selectedDomain
         };
 
         setTasks([...tasks, newTaskObj]);
@@ -141,57 +151,57 @@ export default function Dashboard() {
                             </div>
                         ) : (
                             <>
-                                <div className="flex justify-between items-center mb-6">
-                                    <h2 className="text-2xl font-bold text-gray-800">Cognitive Task Harmonization Hub</h2>
-                                    <Button onClick={optimizeAll} className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
-                                        <RotateCcw className="h-4 w-4 mr-2" /> Neural Optimization
-                                    </Button>
-                                </div>
+                                {/*<div className="flex justify-between items-center mb-6">*/}
+                                {/*    <h2 className="text-2xl font-bold text-gray-800">Cognitive Task Harmonization Hub</h2>*/}
+                                {/*    <Button onClick={optimizeAll} className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">*/}
+                                {/*        <RotateCcw className="h-4 w-4 mr-2" /> Neural Optimization*/}
+                                {/*    </Button>*/}
+                                {/*</div>*/}
 
-                                {/* Stats Cards */}
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                                    <Card>
-                                        <CardHeader className="pb-2">
-                                            <CardTitle className="text-lg">Productivity Coefficient</CardTitle>
-                                            <CardDescription>AI-analyzed work pattern efficiency</CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <div className="flex justify-between items-end mb-2">
-                                                <span className="text-3xl font-bold">{productivityScore}%</span>
-                                                <Badge className="bg-green-100 text-green-800">+5.3% <ArrowUpRight className="h-3 w-3 inline" /></Badge>
-                                            </div>
-                                            <Progress value={productivityScore} className="h-2" />
-                                        </CardContent>
-                                    </Card>
+                                {/*/!* Stats Cards *!/*/}
+                                {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">*/}
+                                {/*    <Card>*/}
+                                {/*        <CardHeader className="pb-2">*/}
+                                {/*            <CardTitle className="text-lg">Productivity Coefficient</CardTitle>*/}
+                                {/*            <CardDescription>AI-analyzed work pattern efficiency</CardDescription>*/}
+                                {/*        </CardHeader>*/}
+                                {/*        <CardContent>*/}
+                                {/*            <div className="flex justify-between items-end mb-2">*/}
+                                {/*                <span className="text-3xl font-bold">{productivityScore}%</span>*/}
+                                {/*                <Badge className="bg-green-100 text-green-800">+5.3% <ArrowUpRight className="h-3 w-3 inline" /></Badge>*/}
+                                {/*            </div>*/}
+                                {/*            <Progress value={productivityScore} className="h-2" />*/}
+                                {/*        </CardContent>*/}
+                                {/*    </Card>*/}
 
-                                    <Card>
-                                        <CardHeader className="pb-2">
-                                            <CardTitle className="text-lg">Synergistic Potential</CardTitle>
-                                            <CardDescription>Quantum neural network alignment</CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <div className="flex justify-between items-end mb-2">
-                                                <span className="text-3xl font-bold">{synergisticPotential}%</span>
-                                                <Badge className="bg-amber-100 text-amber-800">Needs Attention</Badge>
-                                            </div>
-                                            <Progress value={synergisticPotential} className="h-2" />
-                                        </CardContent>
-                                    </Card>
+                                {/*    <Card>*/}
+                                {/*        <CardHeader className="pb-2">*/}
+                                {/*            <CardTitle className="text-lg">Synergistic Potential</CardTitle>*/}
+                                {/*            <CardDescription>Quantum neural network alignment</CardDescription>*/}
+                                {/*        </CardHeader>*/}
+                                {/*        <CardContent>*/}
+                                {/*            <div className="flex justify-between items-end mb-2">*/}
+                                {/*                <span className="text-3xl font-bold">{synergisticPotential}%</span>*/}
+                                {/*                <Badge className="bg-amber-100 text-amber-800">Needs Attention</Badge>*/}
+                                {/*            </div>*/}
+                                {/*            <Progress value={synergisticPotential} className="h-2" />*/}
+                                {/*        </CardContent>*/}
+                                {/*    </Card>*/}
 
-                                    <Card>
-                                        <CardHeader className="pb-2">
-                                            <CardTitle className="text-lg">Task Completion Velocity</CardTitle>
-                                            <CardDescription>Temporal momentum coefficient</CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <div className="flex justify-between items-end mb-2">
-                                                <span className="text-3xl font-bold">7.3x</span>
-                                                <Badge className="bg-green-100 text-green-800">Industry Leading</Badge>
-                                            </div>
-                                            <Progress value={73} className="h-2" />
-                                        </CardContent>
-                                    </Card>
-                                </div>
+                                {/*    <Card>*/}
+                                {/*        <CardHeader className="pb-2">*/}
+                                {/*            <CardTitle className="text-lg">Task Completion Velocity</CardTitle>*/}
+                                {/*            <CardDescription>Temporal momentum coefficient</CardDescription>*/}
+                                {/*        </CardHeader>*/}
+                                {/*        <CardContent>*/}
+                                {/*            <div className="flex justify-between items-end mb-2">*/}
+                                {/*                <span className="text-3xl font-bold">7.3x</span>*/}
+                                {/*                <Badge className="bg-green-100 text-green-800">Industry Leading</Badge>*/}
+                                {/*            </div>*/}
+                                {/*            <Progress value={73} className="h-2" />*/}
+                                {/*        </CardContent>*/}
+                                {/*    </Card>*/}
+                                {/*</div>*/}
 
                                 {/* Main content tabs */}
                                 <Tabs defaultValue={activeView} onValueChange={setActiveView} className="mb-6">
@@ -212,18 +222,59 @@ export default function Dashboard() {
                                             </CardHeader>
                                             <CardContent>
                                                 <div className="space-y-4">
-                                                    {/* Add new task */}
-                                                    <div className="flex gap-2">
+                                                    {/* Add new task with all selections */}
+                                                    <div className="space-y-3">
                                                         <Input
                                                             value={newTask}
                                                             onChange={(e) => setNewTask(e.target.value)}
                                                             placeholder="Add new quantum-aligned action item..."
                                                             onKeyDown={(e) => e.key === 'Enter' && addTask()}
-                                                            className="flex-1"
+                                                            className="w-full"
                                                         />
-                                                        <Button onClick={addTask} className="bg-blue-600 hover:bg-blue-700">
-                                                            <Plus className="h-4 w-4 mr-2" /> Add Paradigm
-                                                        </Button>
+                                                        <div className="flex flex-wrap gap-2">
+                                                            <Select value={selectedPriority} onValueChange={setSelectedPriority}>
+                                                                <SelectTrigger className="w-50">
+                                                                    <SelectValue placeholder="Select priority" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    {priorities.map((priority) => (
+                                                                        <SelectItem key={priority} value={priority}>
+                                                                            {priority} Priority
+                                                                        </SelectItem>
+                                                                    ))}
+                                                                </SelectContent>
+                                                            </Select>
+
+                                                            <Select value={selectedComplexity} onValueChange={setSelectedComplexity}>
+                                                                <SelectTrigger className="w-50">
+                                                                    <SelectValue placeholder="Select complexity" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    {complexities.map((complexity) => (
+                                                                        <SelectItem key={complexity} value={complexity}>
+                                                                            {complexity} Complexity
+                                                                        </SelectItem>
+                                                                    ))}
+                                                                </SelectContent>
+                                                            </Select>
+
+                                                            <Select value={selectedDomain} onValueChange={setSelectedDomain}>
+                                                                <SelectTrigger className="w-50">
+                                                                    <SelectValue placeholder="Select domain" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    {domains.map((domain) => (
+                                                                        <SelectItem key={domain} value={domain}>
+                                                                            {domain} Domain
+                                                                        </SelectItem>
+                                                                    ))}
+                                                                </SelectContent>
+                                                            </Select>
+
+                                                            <Button onClick={addTask} className="bg-blue-600 hover:bg-blue-700 ml-auto">
+                                                                <Plus className="h-4 w-4 mr-2" /> Add Paradigm
+                                                            </Button>
+                                                        </div>
                                                     </div>
 
                                                     {/* Task list */}
