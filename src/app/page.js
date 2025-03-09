@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CheckCircle, ArrowRight, Zap, Brain, Activity} from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle,DialogDescription } from "@/components/ui/dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import Link from "next/link";
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -77,11 +78,11 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full py-6 px-8 text-lg font-semibold">
-                  Sign Up Now! <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href={"/sign-up"} >Get Started</Link>
                 </Button>
-                <Button variant="outline" className="bg-white rounded-full py-6 px-8 text-lg font-semibold border-2">
-                  Login
-                </Button>
+                {/*<Button variant="outline" className="bg-white rounded-full py-6 px-8 text-lg font-semibold border-2">*/}
+                {/*  Login*/}
+                {/*</Button>*/}
               </div>
 
               <div className="relative">
