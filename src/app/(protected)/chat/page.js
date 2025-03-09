@@ -42,9 +42,9 @@ export default function ChatPage() {
         <div className="flex min-h-svh flex-col items-center justify-between p-6 md:p-10 relative">
             <div className="w-full max-w-3xl">
                 <div className="flex flex-col mb-8">
-                    <h1 className="text-2xl font-bold text-center">productive.chat</h1>
+                    <h1 className="text-2xl font-bold text-center">FocusFlow ChatBot</h1>
                     <p className="text-muted-foreground text-center">
-                        Chat with our AI to gain AURA POINTS.
+                        Use our AI-driven tool to boost your productivity.
                     </p>
                 </div>
 

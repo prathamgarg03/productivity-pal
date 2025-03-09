@@ -70,7 +70,7 @@ export default function Home() {
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div className="text-center">
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">ProductivityPal</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">ProductivityPal*</span>
               </h1>
               <p className="text-2xl md:text-3xl font-medium text-gray-700 mb-10 max-w-3xl mx-auto">
                 Unlock <span className="text-blue-600 font-semibold">10x Productivity</span> with our AI-Powered Workflow Optimization Engine
@@ -324,9 +324,12 @@ export default function Home() {
                   Get Early Access
                 </Button>
               </div>
-              
             </div>
+
           </div>
+          <h3 className="text-center text-lg p-4 md:p-6 italic text-white-600">
+            *This website does not help increasing productivity at all. Please use at your own discretion.
+          </h3>
         </section>
 
         {/* Footer */}
