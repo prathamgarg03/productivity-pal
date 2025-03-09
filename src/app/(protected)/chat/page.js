@@ -21,7 +21,6 @@ export default function ChatPage() {
     const videoRef = useRef(null)
     const overlayRef = useRef(null)
 
-    // Check local storage on component mount
     useEffect(() => {
         const storedCount = localStorage.getItem('messageCount')
         if (storedCount) {
@@ -29,13 +28,12 @@ export default function ChatPage() {
         }
     }, [])
 
-    // Show close button after set time when video is showing
     useEffect(() => {
         let timer
         if (showMeme) {
             timer = setTimeout(() => {
                 setShowCloseButton(true)
-            }, 10000) // 10 seconds
+            }, 10000)
         }
 
         return () => {
@@ -209,7 +207,7 @@ export default function ChatPage() {
                         }}
                     >
                         <SkipForward className="mr-1 h-4 w-4" />
-                        {skipClickCount > 5 ? "Nice try 😂" : "Skip"}
+                        {skipClickCount > 3 ? "Nice try 😂" : "Skip"}
                     </Button>
                 </div>
             )}
