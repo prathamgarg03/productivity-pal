@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Card,CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';  // Import the Link component from Next.js
 import { Plus, BarChart2, MessageCircle, Zap, Volume, User, Clock } from 'lucide-react';  // Assuming you're using Lucide icons
 
@@ -7,9 +7,7 @@ function Sidebar() {
     return (
         <aside className="bg-white w-64 border-r border-gray-200 flex flex-col">
             <div className="p-4">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    <Plus className="h-4 w-4 mr-2" /> New Task Paradigm
-                </Button>
+                <h2 className="text-2xl font-semibold text-gray-800">Menu</h2> {/* Sidebar heading */}
             </div>
 
             <nav className="flex-1 overflow-y-auto py-4">
