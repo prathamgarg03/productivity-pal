@@ -38,6 +38,7 @@ export default function SuggestionForm() {
             suggestion: "",
             focusedField: "name",
         });
+        alert("Thank you for your Suggestion! We will not be taking it in serious consideration.");
     };
 
     const handleKeyPress = (char) => {
