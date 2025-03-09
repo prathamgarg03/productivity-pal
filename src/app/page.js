@@ -5,41 +5,56 @@ import Head from 'next/head';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { CheckCircle, ArrowRight, Zap, Brain, Clock, Globe } from 'lucide-react';
+import { CheckCircle, ArrowRight, Zap, Brain, Activity} from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle,DialogDescription } from "@/components/ui/dialog";
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export default function Home() {
   const [email, setEmail] = useState('');
 
+  const [openLearnMore, setOpenLearMore] = useState(false);
+  const [messageLearMore, setMessageLearnMore] = useState("Accessing Forbidden Knowledge...");
+
   const features = [
     {
-      title: "Quantum Task Prioritization",
-      description: "Leverage our patented molecular-level algorithmic sequencing to prioritize tasks with unprecedented quantum accuracy.",
-      icon: <Zap className="h-12 w-12 text-blue-500" />
-    },
-    {
-      title: "Cognitive Resonance Optimization",
-      description: "Harmonize your team's neural pathways through our AI-powered thought-pattern alignment technology.",
+      title: "Neural Task Recalibration",
+      description: "Experience AI-driven task restructuring that transforms simple to-dos into high-impact strategic objectives.",
       icon: <Brain className="h-12 w-12 text-indigo-500" />
     },
     {
-      title: "Temporal Workflow Alignment",
-      description: "Synchronize cross-functional initiatives through our time-space continuum management framework.",
-      icon: <Clock className="h-12 w-12 text-purple-500" />
+      title: "Gamified Synergy Metrics",
+      description: "Unlock real-time productivity scores and dynamic performance analytics to supercharge your workflow engagement.",
+      icon: <Activity className="h-12 w-12 text-indigo-500" />
+    },
+    {
+      title: "Hyper-Adaptive Interface",
+      description: "Navigate an ever-evolving, AI-personalized dashboard that optimizes itself faster than you can keep up.",
+      icon: <Zap className="h-12 w-12 text-blue-500" />
     }
   ];
 
   const testimonials = [
     {
-      quote: "ProductivityPal revolutionized our disruptive innovation pipeline by 500%!",
-      author: "Jane Smith, Chief Innovation Officer",
-      company: "TechDynamics Global"
+      quote: "ProductivityPal completely shattered our productivity paradigms, boosting efficiency by 500%—and then we lost track of time.",
+      author: "Someone once said, \"ABC\", Keeper of Unseen Efficiency",
+      company: "DEF"
     },
     {
-      quote: "We experienced a 10x ROI after implementing the Cognitive Resonance module.",
-      author: "Mark Johnson, Director of Digital Transformation",
-      company: "NextGen Solutions"
+      quote: "Our ROI? Let's just say it broke the algorithm. The Cognitive Resonance module rewired our team’s very essence.",
+      author: "They call her 'GHI', Seeker of Cognitive Pathways",
+      company: "JKL"
     }
   ];
+
+  const handleLearnMore = () => {
+    setOpenLearMore(true);
+    setMessageLearnMore("Accessing Forbidden Knowledge...");
+
+    setTimeout(() => {
+      setMessageLearnMore("Never mind, you’re not ready for this.");
+    }, 2000);
+  };
+
 
   return (
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50">
@@ -65,17 +80,17 @@ export default function Home() {
                   Sign Up Now! <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button variant="outline" className="bg-white rounded-full py-6 px-8 text-lg font-semibold border-2">
-                  Request Demo
+                  Login
                 </Button>
               </div>
 
               <div className="relative">
-                <img
-                    src="/api/placeholder/1200/600"
-                    alt="Impossibly productive people using ProductivityPal
-                   "
-                    className="rounded-xl shadow-2xl mx-auto"
-                />
+                {/*<img*/}
+                {/*    src="/api/placeholder/1200/600"*/}
+                {/*    alt="Impossibly productive people using ProductivityPal*/}
+                {/*   "*/}
+                {/*    className="rounded-xl shadow-2xl mx-auto"*/}
+                {/*/>*/}
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-full py-2 px-6 shadow-lg">
                   <p className="text-gray-500 font-medium text-sm">Trusted by 10,000+ forward-thinking organizations</p>
                 </div>
@@ -84,19 +99,19 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Logos */}
-        <section className="py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-gray-500 mb-8">TRUSTED BY FORWARD-THINKING ORGANIZATIONS</p>
-            <div className="flex justify-between items-center flex-wrap gap-8">
-              {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="h-8 w-32 bg-gray-200 rounded-md flex items-center justify-center">
-                    <p className="text-gray-400 text-xs">LOGO {i}</p>
-                  </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/*/!* Logos *!/*/}
+        {/*<section className="py-16 bg-white">*/}
+        {/*  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">*/}
+        {/*    <p className="text-center text-gray-500 mb-8">TRUSTED BY FORWARD-THINKING ORGANIZATIONS</p>*/}
+        {/*    <div className="flex justify-between items-center flex-wrap gap-8">*/}
+        {/*      {[1, 2, 3, 4, 5].map((i) => (*/}
+        {/*          <div key={i} className="h-8 w-32 bg-gray-200 rounded-md flex items-center justify-center">*/}
+        {/*            <p className="text-gray-400 text-xs">LOGO {i}</p>*/}
+        {/*          </div>*/}
+        {/*      ))}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</section>*/}
 
         {/* Features */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -119,12 +134,24 @@ export default function Home() {
                       <CardDescription className="text-gray-600">{feature.description}</CardDescription>
                     </CardContent>
                     <CardFooter>
-                      <Button variant="ghost" className="text-blue-600 p-0 hover:bg-transparent hover:text-blue-800">
-                        Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                      <Button onClick={handleLearnMore}  variant="ghost" className="text-blue-600 p-0 hover:bg-transparent hover:text-blue-800">
+                        Learn more <ArrowRight onClick={handleLearnMore}  className="ml-1 h-4 w-4" />
                       </Button>
                     </CardFooter>
                   </Card>
               ))}
+              {/* Dialog (Modal) */}
+              <Dialog open={openLearnMore} onOpenChange={setOpenLearMore}>
+                <DialogContent className="max-w-sm h-[150px] text-center flex flex-col items-center justify-center">
+                  <DialogHeader>
+                    <VisuallyHidden>
+                      <DialogTitle></DialogTitle>
+                    </VisuallyHidden>
+                    <DialogDescription className="text-black-700">{messageLearMore}</DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+
             </div>
           </div>
         </section>
@@ -135,7 +162,7 @@ export default function Home() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">How ProductivityPal Works</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our proprietary framework transforms chaos into seamless productivity
+                Our framework doesn’t just manage tasks; it redefines getting things done.
               </p>
             </div>
 
@@ -147,14 +174,14 @@ export default function Home() {
                         {step}
                       </div>
                       <h3 className="text-xl font-semibold mb-2">
-                        {step === 1 && "Connect & Configure"}
-                        {step === 2 && "AI Analysis & Optimization"}
+                        {step === 1 && "Connect & Personalize"}
+                        {step === 2 && "AI Analysis & Realignment"}
                         {step === 3 && "Experience Transformation"}
                       </h3>
                       <p className="text-gray-600 max-w-xs">
-                        {step === 1 && "Seamlessly integrate our platform with your existing workflow ecosystem."}
-                        {step === 2 && "Our quantum algorithms analyze your teamʼs cognitive patterns and optimize accordingly."}
-                        {step === 3 && "Witness a paradigm shift in how your organization achieves unprecedented synergy."}
+                        {step === 1 && "Integrate seamlessly into your world. It’s not about your workflow anymore—it’s about your (chaotic) journey."}
+                        {step === 2 && "Our algorithms adapt to your every move, transforming your tasks into new, unpredictable challenges. Expect your goals to evolve as you do."}
+                        {step === 3 && "Watch as your sense of productivity shifts into something more personal, more powerful. You’ll redefine what success looks like, one task at a time."}
                       </p>
                     </div>
                 ))}
@@ -213,30 +240,30 @@ export default function Home() {
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Embrace the Madness: Pricing Plans</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Choose the perfect plan for your transformative journey
+                Choose the plan that will pull you deeper into the vortex of productivity (or chaos, depending on how you look at it).
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {["Starter", "Pro", "Enterprise"].map((plan, index) => (
+              {["The Initiation", "The Ascension", "The Abyss"].map((plan, index) => (
                   <Card key={index} className={`border-0 ${index === 1 ? 'shadow-xl ring-2 ring-blue-500' : 'shadow-md'}`}>
                     <CardHeader>
                       <CardTitle className="text-2xl">{plan}</CardTitle>
                       <CardDescription>
-                        {index === 0 && "For emerging innovators"}
-                        {index === 1 && "For growing organizations"}
-                        {index === 2 && "For enterprise transformation"}
+                        {index === 0 && "For those beginning to sense the unknown."}
+                        {index === 1 && "For those who dare to grow beyond the limits."}
+                        {index === 2 && "For those who wish to disappear into the abyss."}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="mb-6">
-                    <span className="text-4xl font-bold">
-                      {index === 0 && "$29"}
-                      {index === 1 && "$79"}
-                      {index === 2 && "Custom"}
-                    </span>
+              <span className="text-4xl font-bold">
+                {index === 0 && "FREE"}
+                {index === 1 && "$100"}
+                {index === 2 && "Custom"}
+              </span>
                         {index !== 2 && <span className="text-gray-500">/month</span>}
                       </div>
                       <ul className="space-y-3">
@@ -244,28 +271,28 @@ export default function Home() {
                             <li key={feature} className="flex items-center gap-2">
                               <CheckCircle className="h-5 w-5 text-green-500" />
                               <span className="text-gray-700">
-                          {index === 0 && feature === 1 && "Basic Quantum Prioritization"}
-                                {index === 0 && feature === 2 && "5 Team Members"}
-                                {index === 0 && feature === 3 && "Limited Cognitive Analysis"}
-                                {index === 0 && feature === 4 && "Email Support"}
+                    {index === 0 && feature === 1 && "Beginner's Quantum Prioritization"}
+                                {index === 0 && feature === 2 && "5 Tasks, but you won't remember them all"}
+                                {index === 0 && feature === 3 && "Limited Cognitive Breakdown"}
+                                {index === 0 && feature === 4 && "NO Support, because you’ll find your own way"}
 
                                 {index === 1 && feature === 1 && "Advanced Quantum Prioritization"}
-                                {index === 1 && feature === 2 && "Unlimited Team Members"}
-                                {index === 1 && feature === 3 && "Full Cognitive Resonance Suite"}
-                                {index === 1 && feature === 4 && "24/7 Priority Support"}
+                                {index === 1 && feature === 2 && "10 Tasks, lost in the endless sea"}
+                                {index === 1 && feature === 3 && "Full Cognitive Disruption Suite"}
+                                {index === 1 && feature === 4 && "24/7 Email Support... but is it really support?"}
 
-                                {index === 2 && feature === 1 && "Enterprise-grade Quantum Engine"}
-                                {index === 2 && feature === 2 && "Custom Integrations"}
-                                {index === 2 && feature === 3 && "Dedicated Success Manager"}
-                                {index === 2 && feature === 4 && "SLA Guarantees"}
-                        </span>
+                                {index === 2 && feature === 1 && "Endless Quantum Engine"}
+                                {index === 2 && feature === 2 && "Custom Integrations... to bind your mind"}
+                                {index === 2 && feature === 3 && "Personalized Success Manager... or guide into madness"}
+                                {index === 2 && feature === 4 && "24/7 Email Support... but does it even help?"}
+                  </span>
                             </li>
                         ))}
                       </ul>
                     </CardContent>
                     <CardFooter>
                       <Button className={`w-full ${index === 1 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-900'}`}>
-                        {index === 1 ? "Get Started Now" : "Contact Sales"}
+                        {index === 1 ? "Get Started Now" : "Contact Sales... if you dare"}
                       </Button>
                     </CardFooter>
                   </Card>
@@ -273,6 +300,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* CTA */}
         <section className="py-24 bg-blue-600">
