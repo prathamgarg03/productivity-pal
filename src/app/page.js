@@ -220,7 +220,7 @@ export default function Home() {
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
+                          <p className="text-gray-700 italic mb-4">{testimonial.quote}</p>
                           <p className="text-gray-900 font-semibold">{testimonial.author}</p>
                           <p className="text-gray-500">{testimonial.company}</p>
                         </CardContent>
@@ -324,9 +324,7 @@ export default function Home() {
                   Get Early Access
                 </Button>
               </div>
-              <p className="text-gray-500 text-sm mt-3">
-                By signing up, you'll receive our AI-optimized newsletter and transformation tips.
-              </p>
+              
             </div>
           </div>
         </section>
