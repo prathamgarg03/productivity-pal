@@ -9,7 +9,8 @@ export function MemeOverlay({
     videoSrc,
     isVisible,
     onClose,
-    closeButtonDelay = 10000
+    closeButtonDelay = 10000,
+    text
 }) {
     const [showCloseButton, setShowCloseButton] = useState(false)
     const [skipButtonPosition, setSkipButtonPosition] = useState({ top: '70%', left: '80%' })
@@ -87,7 +88,7 @@ export function MemeOverlay({
 
                 <div className="text-center mt-6">
                     <p className="text-white text-lg mb-4">
-                        Sorry for the interruption!
+                        {text}
                     </p>
 
                     {showCloseButton && (

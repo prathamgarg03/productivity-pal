@@ -105,6 +105,7 @@ export default function ChatPage() {
                 isVisible={showMeme}
                 onClose={handleCloseMeme}
                 closeButtonDelay={10000}
+                text = "Sorry for the interruption!"
             />
         </div>
     )
