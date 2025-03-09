@@ -7,7 +7,7 @@ import { Play, Pause } from "lucide-react";
 
 // List of sound files
 const soundList = [
-    { name: "Rain Sounds", file: "/sounds/rain.mp3" },
+    { name: "Rain Sounds", file: "/audio/rain.mp3" },
     { name: "White Noise", file: "/sounds/white-noise.mp3" },
     { name: "Forest Ambience", file: "/sounds/forest.mp3" },
     { name: "Cafe Background", file: "/sounds/cafe.mp3" },

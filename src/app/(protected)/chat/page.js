@@ -17,7 +17,6 @@ export default function ChatPage() {
     const [showMeme, setShowMeme] = useState(false)
     const [messageCount, setMessageCount] = useState(0)
 
-    // Check local storage on component mount
     useEffect(() => {
         const storedCount = localStorage.getItem('messageCount')
         if (storedCount) {
@@ -27,13 +26,9 @@ export default function ChatPage() {
 
     const handleFormSubmit = (e) => {
         handleSubmit(e)
-
-        // Increment message count
         const newCount = messageCount + 1
         setMessageCount(newCount)
         localStorage.setItem('messageCount', newCount.toString())
-
-        // Show meme with 40% probability after the 3rd message
         if (newCount >= 3 && Math.random() < 0.4) {
             setShowMeme(true)
         }
@@ -99,7 +94,7 @@ export default function ChatPage() {
                     </Button>
                 </form>
             </div>
-            
+
             <MemeOverlay
                 videoSrc="/memes/interruption.mp4"
                 isVisible={showMeme}
