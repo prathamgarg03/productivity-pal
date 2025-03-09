@@ -21,7 +21,7 @@ function Sidebar() {
                             <Link href={item.route}>
                                 <Button
                                     variant="ghost"
-                                    className="w-full justify-start text-gray-700"
+                                    className="w-full justify-start text-gray-700 cursor-pointer"
                                 >
                                     {item.icon}
                                     {item.name}
