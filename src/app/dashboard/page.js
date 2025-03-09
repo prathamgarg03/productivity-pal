@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
+import Sidebar from "@/components/sidebar";
 
 export default function Dashboard() {
     const [tasks, setTasks] = useState([
@@ -131,52 +132,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-1 overflow-hidden">
                     {/* Sidebar */}
-                    <aside className="bg-white w-64 border-r border-gray-200 flex flex-col">
-                        <div className="p-4">
-                            <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                                <Plus className="h-4 w-4 mr-2" /> New Task Paradigm
-                            </Button>
-                        </div>
-
-                        <nav className="flex-1 overflow-y-auto py-4">
-                            <ul className="space-y-1 px-2">
-                                {["Dashboard", "Task Matrix", "Synergy Hub", "Neural Analytics", "Team Resonance", "Temporal Planning"].map((item, index) => (
-                                    <li key={index}>
-                                        <Button
-                                            variant={index === 0 ? "subtle" : "ghost"}
-                                            className={`w-full justify-start ${index === 0 ? 'bg-blue-50 text-blue-700' : 'text-gray-700'}`}
-                                        >
-                                            {index === 0 && <BarChart2 className="h-4 w-4 mr-2" />}
-                                            {index === 1 && <CheckCircle className="h-4 w-4 mr-2" />}
-                                            {index === 2 && <Zap className="h-4 w-4 mr-2" />}
-                                            {index === 3 && <Brain className="h-4 w-4 mr-2" />}
-                                            {index === 4 && <User className="h-4 w-4 mr-2" />}
-                                            {index === 5 && <Clock className="h-4 w-4 mr-2" />}
-                                            {item}
-                                        </Button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-
-                        <div className="p-4 border-t border-gray-200">
-                            <Card className="bg-indigo-50 border-0">
-                                <CardContent className="p-4">
-                                    <div className="flex items-center mb-2">
-                                        <Zap className="h-5 w-5 text-indigo-600 mr-2" />
-                                        <h3 className="font-semibold text-indigo-700">Upgrade Now</h3>
-                                    </div>
-                                    <p className="text-sm text-indigo-700 mb-3">
-                                        Unlock Advanced Cognitive Resonance features
-                                    </p>
-                                    <Button size="sm" className="w-full bg-indigo-600 hover:bg-indigo-700">
-                                        Go Enterprise
-                                    </Button>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </aside>
-
+                    <Sidebar/>
                     {/* Main Content */}
                     <main className="flex-1 overflow-y-auto bg-gray-50 p-6">
                         {loadingDashboard ? (
