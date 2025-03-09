@@ -9,12 +9,19 @@ import { CheckCircle, ArrowRight, Zap, Brain, Activity} from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle,DialogDescription } from "@/components/ui/dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import Link from "next/link";
+import {sendBetaEmail} from "@/actions/email";
 
 export default function Home() {
   const [email, setEmail] = useState('');
 
   const [openLearnMore, setOpenLearMore] = useState(false);
   const [messageLearMore, setMessageLearnMore] = useState("Accessing Forbidden Knowledge...");
+
+  const sendEmail = async () => {
+    const response = await sendBetaEmail(email)
+    console.log(response)
+    alert(response.message)
+  }
 
   const features = [
     {
@@ -320,11 +327,14 @@ export default function Home() {
                     placeholder="Enter your email"
                     className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <Button className="bg-blue-600 hover:bg-blue-700 py-3 px-6">
+                <Button
+                    className="bg-blue-600 hover:bg-blue-700 py-3 px-6"
+                    onClick={sendEmail}
+                >
                   Get Early Access
                 </Button>
               </div>
-              
+
             </div>
           </div>
         </section>
