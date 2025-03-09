@@ -1,21 +1,17 @@
-import Sidebar from "@/components/sidebar"; // Make sure this path is correct
-import "../globals.css"; // Make sure to import any necessary global styles
-
-// Google font setup
-
+import Sidebar from "@/components/sidebar";
+import "../globals.css";
 
 export default function ProtectedLayout({ children }) {
     return (
-
-        <div className="flex bg-gray-100">  {/* Ensure background color is applied */}
-            <Sidebar className="w-64 bg-gray-800 text-white" />
-
-            <div className="flex-1">
-                <main className="p-6 bg-white">
+        <div className="grid grid-cols-[auto_1fr] h-screen overflow-hidden">
+            <div className="h-screen">
+                <Sidebar />
+            </div>
+            <div className="h-screen overflow-hidden">
+                <main className="h-full overflow-auto p-6">
                     {children}
                 </main>
             </div>
-
         </div>
     );
 }
