@@ -240,38 +240,37 @@ export default function Home() {
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Embrace the Madness: Pricing Plans</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Choose the plan that will pull you deeper into the vortex of productivity (or chaos, depending on how you look at it).
+                Choose the perfect plan for your transformative journey
               </p>
             </div>
-
             <div className="grid md:grid-cols-3 gap-8">
               {["The Initiation", "The Ascension", "The Abyss"].map((plan, index) => (
-                  <Card key={index} className={`border-0 ${index === 1 ? 'shadow-xl ring-2 ring-blue-500' : 'shadow-md'}`}>
+                  <Card key={index} className={`border-0 ${index === 0 ? 'shadow-xl ring-2 ring-blue-500' : 'shadow-md'}`}>
                     <CardHeader>
                       <CardTitle className="text-2xl">{plan}</CardTitle>
                       <CardDescription>
                         {index === 0 && "For those beginning to sense the unknown."}
-                        {index === 1 && "For those who dare to grow beyond the limits."}
-                        {index === 2 && "For those who wish to disappear into the abyss."}
+                        {index === 1 && "For those who dare to grow beyond limits."}
+                        {index === 2 && "For those who wish to vanish into the abyss."}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="mb-6">
-              <span className="text-4xl font-bold">
+                       <span className="text-4xl font-bold">
                 {index === 0 && "FREE"}
                 {index === 1 && "$100"}
                 {index === 2 && "Custom"}
-              </span>
+                   </span>
                         {index !== 2 && <span className="text-gray-500">/month</span>}
                       </div>
                       <ul className="space-y-3">
                         {[1, 2, 3, 4].map((feature) => (
                             <li key={feature} className="flex items-center gap-2">
-                              <CheckCircle className="h-5 w-5 text-green-500" />
+                              <CheckCircle className="h-7 w-7 text-green-500" />
                               <span className="text-gray-700">
-                    {index === 0 && feature === 1 && "Beginner's Quantum Prioritization"}
+                                {index === 0 && feature === 1 && "Beginner's Quantum Prioritization"}
                                 {index === 0 && feature === 2 && "5 Tasks, but you won't remember them all"}
                                 {index === 0 && feature === 3 && "Limited Cognitive Breakdown"}
                                 {index === 0 && feature === 4 && "NO Support, because you’ll find your own way"}
@@ -279,10 +278,10 @@ export default function Home() {
                                 {index === 1 && feature === 1 && "Advanced Quantum Prioritization"}
                                 {index === 1 && feature === 2 && "10 Tasks, lost in the endless sea"}
                                 {index === 1 && feature === 3 && "Full Cognitive Disruption Suite"}
-                                {index === 1 && feature === 4 && "24/7 Email Support... but is it really support?"}
+                                {index === 1 && feature === 4 && "12/7 Email Support... but is it really support?"}
 
                                 {index === 2 && feature === 1 && "Endless Quantum Engine"}
-                                {index === 2 && feature === 2 && "Custom Integrations... to bind your mind"}
+                                {index === 2 && feature === 2 && "Unlimited Tasks, but you won't use them all"}
                                 {index === 2 && feature === 3 && "Personalized Success Manager... or guide into madness"}
                                 {index === 2 && feature === 4 && "24/7 Email Support... but does it even help?"}
                   </span>
@@ -291,8 +290,8 @@ export default function Home() {
                       </ul>
                     </CardContent>
                     <CardFooter>
-                      <Button className={`w-full ${index === 1 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-900'}`}>
-                        {index === 1 ? "Get Started Now" : "Contact Sales... if you dare"}
+                      <Button className={`w-full ${index === 0 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-900'}`}>
+                        {index === 0 ? "Get Started Now" : "Contact Sales... if you dare"}
                       </Button>
                     </CardFooter>
                   </Card>
